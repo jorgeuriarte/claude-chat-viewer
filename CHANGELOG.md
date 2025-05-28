@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2024-05-28
+
+### Added
+- Version and timestamp display on startup for debugging
+- Clear menu options in conversation detail view
+
+### Changed
+- Simplified conversation detail interface with two clear options
+- Improved user experience with better navigation hints
+
+### Fixed
+- Removed complex SIGINT handling that wasn't working properly
+
 ## [0.1.1] - 2024-05-28
 
 ### Fixed
