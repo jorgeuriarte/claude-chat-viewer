@@ -1,20 +1,48 @@
 # Development files
-.git/
+.git
 .gitignore
+.vscode
+.idea
 *.log
+*.swp
 .DS_Store
 
 # Test files
 test/
+tests/
 *.test.js
+*.spec.js
 
-# Generated files
-*.html
-claude-conversation-*.html
+# Build artifacts
+dist/
+build/
 
-# IDE files
+# Documentation source files
+docs/
+
+# CI/CD
+.github/
+.travis.yml
+.gitlab-ci.yml
+
+# Development dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories
 .vscode/
 .idea/
 
-# Documentation sources
-docs/
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Claude tools (if any)
+claude_tools/

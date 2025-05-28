@@ -7,7 +7,13 @@
     "claude-chat-viewer": "./bin/claude-chat-viewer.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bin/claude-chat-viewer.js",
+    "prepublishOnly": "npm run check-permissions",
+    "check-permissions": "test -x bin/claude-chat-viewer.js || (echo 'Error: bin/claude-chat-viewer.js is not executable' && exit 1)",
+    "lint": "echo \"No linter configured yet\"",
+    "version": "npm run update-changelog && git add CHANGELOG.md",
+    "update-changelog": "echo \"Please update CHANGELOG.md manually before publishing\""
   },
   "keywords": [
     "claude",
@@ -32,10 +38,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/claude-chat-viewer.git"
+    "url": "git+https://github.com/jorgeassuncao/claude-chat-viewer.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/claude-chat-viewer/issues"
+    "url": "https://github.com/jorgeassuncao/claude-chat-viewer/issues"
   },
-  "homepage": "https://github.com/yourusername/claude-chat-viewer#readme"
+  "homepage": "https://github.com/jorgeassuncao/claude-chat-viewer#readme",
+  "files": [
+    "bin/",
+    "lib/",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }

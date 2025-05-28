@@ -2,6 +2,18 @@
 
 An interactive CLI tool to view and export Claude conversation histories with a beautiful WhatsApp-style HTML visualization.
 
+## Screenshots
+
+<p align="center">
+  <img src="images/demo_1.png" alt="Interactive CLI search interface" width="600">
+  <br><em>Interactive search and filtering of conversations</em>
+</p>
+
+<p align="center">
+  <img src="images/demo_2.png" alt="WhatsApp-style HTML export" width="600">
+  <br><em>Beautiful WhatsApp-style HTML visualization</em>
+</p>
+
 ## Features
 
 - 🔍 **Interactive Search**: Real-time filtering of conversations by date, project, or content
