@@ -1,0 +1,20 @@
+# Development files
+.git/
+.gitignore
+*.log
+.DS_Store
+
+# Test files
+test/
+*.test.js
+
+# Generated files
+*.html
+claude-conversation-*.html
+
+# IDE files
+.vscode/
+.idea/
+
+# Documentation sources
+docs/

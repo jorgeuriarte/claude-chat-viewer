@@ -1,0 +1,41 @@
+{
+  "name": "claude-chat-viewer",
+  "version": "0.1.0",
+  "description": "Interactive CLI tool to view and export Claude conversation histories",
+  "main": "index.js",
+  "bin": {
+    "claude-chat-viewer": "./bin/claude-chat-viewer.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "claude",
+    "anthropic",
+    "chat",
+    "conversation",
+    "viewer",
+    "cli",
+    "export"
+  ],
+  "author": "Jorge",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "inquirer": "^8.2.4",
+    "inquirer-autocomplete-prompt": "^2.0.1",
+    "ora": "^5.4.1",
+    "open": "^8.4.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/claude-chat-viewer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/claude-chat-viewer/issues"
+  },
+  "homepage": "https://github.com/yourusername/claude-chat-viewer#readme"
+}
