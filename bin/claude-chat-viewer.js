@@ -10,6 +10,9 @@ const autocompletePrompt = require('inquirer-autocomplete-prompt');
 // Register the autocomplete prompt type
 inquirer.registerPrompt('autocomplete', autocompletePrompt);
 
+
+
+
 const ConversationParser = require('../lib/conversation-parser');
 const HtmlGenerator = require('../lib/html-generator');
 
@@ -67,7 +70,9 @@ class ClaudeChatCLI {
     }
 
     async run() {
+        const packageJson = require('../package.json');
         console.log(chalk.cyan.bold('🤖 Claude Conversation Viewer'));
+        console.log(chalk.yellow(`v${packageJson.version} - ${new Date().toISOString()}`));
         console.log(chalk.gray('Encuentra y visualiza tus conversaciones de Claude Code\n'));
 
         try {
@@ -98,25 +103,31 @@ class ClaudeChatCLI {
             console.log(chalk.gray('💡 Escribe para filtrar por fecha, proyecto o contenido'));
             console.log(chalk.gray('   Usa las flechas para navegar, Enter para seleccionar\n'));
 
-            const { action } = await inquirer.prompt([
-                {
-                    type: 'autocomplete',
-                    name: 'action',
-                    message: '🔍 Buscar conversación:',
-                    pageSize: 12,
-                    source: async (answersSoFar, input) => {
-                        return this.searchConversations(input);
+            try {
+                const { action } = await inquirer.prompt([
+                    {
+                        type: 'autocomplete',
+                        name: 'action',
+                        message: '🔍 Buscar conversación:',
+                        pageSize: 12,
+                        source: async (answersSoFar, input) => {
+                            return this.searchConversations(input);
+                        }
                     }
-                }
-            ]);
+                ]);
 
-            if (action === 'exit') {
-                console.log(chalk.cyan('👋 ¡Hasta luego!'));
+                if (action === 'exit') {
+                    console.log(chalk.cyan('👋 ¡Hasta luego!'));
+                    process.exit(0);
+                } else if (action === 'reload') {
+                    await this.loadConversations();
+                } else if (typeof action === 'object' && action.conversation) {
+                    await this.showConversationDetail(action.conversation);
+                }
+            } catch (error) {
+                // Handle Ctrl+C - exit gracefully
+                console.log(chalk.cyan('\n👋 ¡Hasta luego!'));
                 process.exit(0);
-            } else if (action === 'reload') {
-                await this.loadConversations();
-            } else if (typeof action === 'object' && action.conversation) {
-                await this.showConversationDetail(action.conversation);
             }
         }
     }
@@ -179,17 +190,24 @@ class ClaudeChatCLI {
         
         const summary = this.parser.getConversationSummary(conversation);
         console.log(summary);
+        
+        console.log(chalk.gray('\n💡 Usa las flechas para seleccionar una opción\n'));
 
-        const { generateHtml } = await inquirer.prompt([
+        const { action } = await inquirer.prompt([
             {
-                type: 'confirm',
-                name: 'generateHtml',
-                message: '¿Quieres generar la visualización HTML de esta conversación?',
-                default: true
+                type: 'list',
+                name: 'action',
+                message: '¿Qué quieres hacer?',
+                choices: [
+                    { name: '🌐 Generar visualización HTML', value: 'generate' },
+                    { name: '← Volver al menú principal', value: 'back' }
+                ],
+                default: 0,
+                loop: false
             }
         ]);
 
-        if (generateHtml) {
+        if (action === 'generate') {
             await this.generateVisualization(conversation);
         }
     }
