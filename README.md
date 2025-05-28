@@ -97,7 +97,7 @@ The HTML export includes:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/claude-chat-viewer.git
+git clone https://github.com/jorgeuriarte/claude-chat-viewer.git
 cd claude-chat-viewer
 
 # Install dependencies

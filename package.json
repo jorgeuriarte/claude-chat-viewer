@@ -38,12 +38,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jorgeassuncao/claude-chat-viewer.git"
+    "url": "git+https://github.com/jorgeuriarte/claude-chat-viewer.git"
   },
   "bugs": {
-    "url": "https://github.com/jorgeassuncao/claude-chat-viewer/issues"
+    "url": "https://github.com/jorgeuriarte/claude-chat-viewer/issues"
   },
-  "homepage": "https://github.com/jorgeassuncao/claude-chat-viewer#readme",
+  "homepage": "https://github.com/jorgeuriarte/claude-chat-viewer#readme",
   "files": [
     "bin/",
     "lib/",

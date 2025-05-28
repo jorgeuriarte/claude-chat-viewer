@@ -46,4 +46,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Implements custom JSONL parser for Claude conversation format
 - Generates responsive HTML with mobile-friendly design
 
-[0.1.0]: https://github.com/yourusername/claude-chat-viewer/releases/tag/v0.1.0
+[0.1.0]: https://github.com/jorgeuriarte/claude-chat-viewer/releases/tag/v0.1.0
