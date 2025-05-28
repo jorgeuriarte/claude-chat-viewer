@@ -1,6 +1,6 @@
 {
   "name": "claude-chat-viewer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Interactive CLI tool to view and export Claude conversation histories",
   "main": "index.js",
   "bin": {
